@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +44,7 @@
                     <i class="fa fa-bars"></i>
                 </a>
                 <div class="top-left-part">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="index">
                         <b>
                             <img src="plugins/images/pixeladmin-logo.png" alt="home" />
                         </b>
@@ -87,23 +90,23 @@
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
                 <ul class="nav" id="side-menu">
                     <li style="padding: 10px 0 0;">
-                        <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw"
+                        <a href="index" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="user-table.html" class="waves-effect"><i class="fa fa-user fa-fw"
+                        <a href="user" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
                     </li>
                     <li>
-                        <a href="role-table.html" class="waves-effect"><i class="fa fa-modx fa-fw"
+                        <a href="role" class="waves-effect"><i class="fa fa-modx fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                     </li>
                     <li>
-                        <a href="groupwork.html" class="waves-effect"><i class="fa fa-table fa-fw"
+                        <a href="groupwork" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                     </li>
                     <li>
-                        <a href="task.html" class="waves-effect"><i class="fa fa-table fa-fw"
+                        <a href="task" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Công việc</span></a>
                     </li>
                     <li>
@@ -136,8 +139,8 @@
                                     <div class="user-content">
                                         <a href="javascript:void(0)"><img src="plugins/images/users/genu.jpg"
                                                 class="thumb-lg img-circle" alt="img"></a>
-                                        <h4 class="text-white">Nguyễn Văn Tèo</h4>
-                                        <h5 class="text-white">info.teo@gmail.com</h5>
+                                        <h4 class="text-white">${user.fullName}</h4>
+                                        <h5 class="text-white">${user.email}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +155,7 @@
                                 <div class="white-box">
                                     <div class="col-in row">
                                         <div class="col-xs-12">
-                                            <h3 class="counter text-right m-t-15 text-danger">20%</h3>
+                                            <h3 class="counter text-right m-t-15 text-danger">${perNotStart}%</h3>
                                         </div>
                                         <div class="col-xs-12">
                                             <i data-icon="E" class="linea-icon linea-basic"></i>
@@ -174,7 +177,7 @@
                                 <div class="white-box">
                                     <div class="col-in row">
                                         <div class="col-xs-12">
-                                            <h3 class="counter text-right m-t-15 text-megna">50%</h3>
+                                            <h3 class="counter text-right m-t-15 text-megna">${perInProgress}%</h3>
                                         </div>
                                         <div class="col-xs-12">
                                             <i class="linea-icon linea-basic" data-icon="&#xe01b;"></i>
@@ -196,7 +199,7 @@
                                 <div class="white-box">
                                     <div class="col-in row">
                                         <div class="col-xs-12">
-                                            <h3 class="counter text-right m-t-15 text-primary">30%</h3>
+                                            <h3 class="counter text-right m-t-15 text-primary">${perDone}%</h3>
                                         </div>
                                         <div class="col-xs-12">
                                             <i class="linea-icon linea-basic" data-icon="&#xe00b;"></i>
@@ -238,28 +241,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Phân tích dự án</td>
-                                            <td>Dự án CRM</td>
-                                            <td>22/05/2019</td>
-                                            <td>30/05/2019</td>
-                                            <td>Đã hoàn thành</td>
-                                            <td>
-                                                <a href="profile-edit.html" class="btn btn-sm btn-primary">Cập nhật</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Thiết kế database</td>
-                                            <td>Dự án CRM</td>
-                                            <td>22/05/2019</td>
-                                            <td>30/05/2019</td>
-                                            <td>Đang thực hiện</td>
-                                            <td>
-                                                <a href="profile-edit.html" class="btn btn-sm btn-primary">Cập nhật</a>
-                                            </td>
-                                        </tr>
+                                    	<c:forEach items="${task}" var="item">
+                                    		<tr>
+	                                            <td>${item.id}</td>
+	                                            <td>${item.name}</td>
+	                                            <td>${item.jobName}</td>
+	                                            <td>${item.start_date}</td>
+	                                            <td>${item.end_date}</td>
+	                                            <td>${item.statusName}</td>
+	                                            <td>
+	                                                <a href="profile-edit?id=${item.id}" class="btn btn-sm btn-primary">Cập nhật</a>
+	                                            </td>
+                                        	</tr>
+                                    	</c:forEach>
                                     </tbody>
                                 </table>
                             </div>

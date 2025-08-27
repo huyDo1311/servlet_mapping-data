@@ -45,7 +45,7 @@
                         <i class="fa fa-bars"></i>
                     </a>
                     <div class="top-left-part">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="index">
                             <b>
                                 <img src="plugins/images/pixeladmin-logo.png" alt="home" />
                             </b>
@@ -90,23 +90,23 @@
             <div class="sidebar-nav navbar-collapse slimscrollsidebar">
                 <ul class="nav" id="side-menu">
                     <li style="padding: 10px 0 0;">
-                        <a href="index.html" class="waves-effect"><i class="fa fa-clock-o fa-fw"
+                        <a href="indexs" class="waves-effect"><i class="fa fa-clock-o fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="user-table.html" class="waves-effect"><i class="fa fa-user fa-fw"
+                        <a href="user" class="waves-effect"><i class="fa fa-user fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
                     </li>
                     <li>
-                        <a href="role-table.html" class="waves-effect"><i class="fa fa-modx fa-fw"
+                        <a href="role" class="waves-effect"><i class="fa fa-modx fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                     </li>
                     <li>
-                        <a href="groupwork.html" class="waves-effect"><i class="fa fa-table fa-fw"
+                        <a href="groupwork" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                     </li>
                     <li>
-                        <a href="task.html" class="waves-effect"><i class="fa fa-table fa-fw"
+                        <a href="task" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Công việc</span></a>
                     </li>
                     <li>
@@ -129,13 +129,13 @@
                         <h4 class="page-title">Danh sách dự án</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
-                        <a href="groupwork-add.html" class="btn btn-sm btn-success">Thêm mới</a>
+                        <a href="groupwork-add.jsp" class="btn btn-sm btn-success">Thêm mới</a>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /row -->
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12">	
                         <div class="white-box">
                             <div class="table-responsive">
                                 <table class="table" id="example">
@@ -156,9 +156,9 @@
 	                                            <td>${item.start_date}</td>
 	                                            <td>${item.end_date}</td>
 	                                            <td>
-	                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-	                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
-	                                                <a href="groupwork-details.html" class="btn btn-sm btn-info">Xem</a>
+	                                                <a href="groupwork-edit?id=${item.id}" class="btn btn-sm btn-primary">Sửa</a>
+	                                                <a href="groupwork-delete?id=${item.id}" class="btn btn-sm btn-danger">Xóa</a>
+	                                                <a href="groupwork-details?id=${item.id}" class="btn btn-sm btn-info">Xem</a>
 	                                            </td>
 	                                        </tr>
 	                                    </c:forEach>
